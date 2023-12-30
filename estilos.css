@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comic Neue', cursive;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: blueviolet;
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+}
+
+.header {
+    background-color: black;
+    font-size: 16px;
+    color: antiquewhite;
+    width: 100%;
+    height: 120px;
+    margin: 0 0 16px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    margin-left: 24px;
+    padding: 10px;
+    background: #fff;
+    height: auto;
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.logo img {
+    width: 200px;
+}
+
+.contenedor-app {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.personajes {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: flex-end;
+    margin-right: 24px;
+}
+
+.menu li {
+    margin: 0 8px;
+    list-style: none;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.menu li:hover {
+    color: #cecdcd;
+}
+
+.tarjeta {
+    border: 2px black solid;
+    width: 300px;
+    box-shadow: 0px 10px 10px black;
+    margin: 5px 5px 10px 5px;
+    padding-bottom: 16px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tarjeta img {
+    margin-bottom: 16px;
+}
+
+.tarjeta p {
+    margin: 5px 16px;
+}
+
+.footer {
+    background-color: black;
+    font-size: 16px;
+    color: antiquewhite;
+    width: 100%;
+    height: 60px;
+    margin: 16px 0 0 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paginado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 16px auto;
+    width: 100%;
+}
+
+.flechas {
+    all: unset;
+    padding: 16px;
+    margin: 5px;
+    background: #fff;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.flechas:hover {
+    background: #cecdcd;
+}
