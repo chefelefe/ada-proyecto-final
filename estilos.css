@@ -77,6 +77,10 @@ body {
     border-radius: 24px;
 
 }
+.menu li a{
+    color: #fff;
+    text-decoration: none;
+}
 
 .menu li:hover {
     color: #cecdcd;
@@ -135,4 +139,19 @@ body {
 
 .flechas:hover {
     background: #cecdcd;
+}
+
+.numeroPagina{
+    padding: 16px;
+    margin: 5px;
+    background: #fff;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .5s ease;
+    width: 60px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

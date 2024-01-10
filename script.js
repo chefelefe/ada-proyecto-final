@@ -10,6 +10,7 @@ const botonSiguientePagina = document.querySelector('#paginaSiguiente')
 const botonAnteriorPagina = document.querySelector('#paginaAnterior')
 const botonPrimerPagina = document.querySelector('#primerpagina')
 const botonUltimaPagina = document.querySelector('#ultimaPagina')
+const constenedorNumeroPagina = document.querySelector('#numeroPagina')
 
 let personajes
 let paginaActual = 1
@@ -57,6 +58,7 @@ function pedidoFetch(pagina) {
 }
 
 pedidoFetch(paginaActual)
+constenedorNumeroPagina.innerHTML = paginaActual
 
 function filtros(filtro) {
     const filtroPersonajes = personajes.filter(personaje => {
@@ -73,19 +75,23 @@ itemDesconocido.addEventListener('click', () => filtros('unknown'))
 function paginaSiguiente() {
     paginaActual++
     pedidoFetch(paginaActual)
+    constenedorNumeroPagina.innerHTML = paginaActual
 }
 function paginaAnterior() {
     paginaActual--
     pedidoFetch(paginaActual)
+    constenedorNumeroPagina.innerHTML = paginaActual
 }
 
 function primerPagina() {
     paginaActual = 1
     pedidoFetch(paginaActual)
+    constenedorNumeroPagina.innerHTML = paginaActual
 }
 
 function ultimaPagina() {
     pedidoFetch(paginaUltima)
+    constenedorNumeroPagina.innerHTML = paginaActual
 }
 
 botonSiguientePagina.addEventListener('click', () => paginaSiguiente())
