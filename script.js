@@ -1,5 +1,8 @@
 const divPersonajes = document.querySelector('.personajes')
+const constenedorCantidadPersonajes = document.querySelector('.cantidadPersonajes')
+
 // Menu filtros
+const itemTodos = document.querySelector('#todos')
 const itemFemenino = document.querySelector('#femenino')
 const itemMasculino = document.querySelector('#masculino')
 const itemSinGenero = document.querySelector('#sinGenero')
@@ -15,6 +18,7 @@ const constenedorNumeroPagina = document.querySelector('#numeroPagina')
 let personajes
 let paginaActual = 1
 let paginaUltima
+let cantidadPersonajes
 
 function crearTarjetas(arrayPersonajes) {
     divPersonajes.innerHTML = ''
@@ -41,6 +45,20 @@ function checkBotonesPaginado() {
         botonPrimerPagina.style.display = 'flex'
         botonAnteriorPagina.style.display = 'flex'
     }
+
+    if (paginaActual === 42) {
+        botonSiguientePagina.style.display = 'none'
+        botonUltimaPagina.style.display = 'none'
+    } else {
+        botonSiguientePagina.style.display = 'flex'
+        botonUltimaPagina.style.display = 'flex'
+    }
+
+    console.log('paginaActual ===>', paginaActual)
+}
+
+function setearCantidadPersonajes() {
+    constenedorCantidadPersonajes.innerHTML = `Cantidad de personajes: ${cantidadPersonajes}`
 }
 
 function pedidoFetch(pagina) {
@@ -52,8 +70,10 @@ function pedidoFetch(pagina) {
             console.log(data)
             paginaUltima = data.info.pages
             personajes = data.results;
+            cantidadPersonajes = data.results.length
             crearTarjetas(personajes)
             checkBotonesPaginado()
+            setearCantidadPersonajes()
         })
 }
 
@@ -65,8 +85,11 @@ function filtros(filtro) {
         return personaje.gender === filtro
     })
     crearTarjetas(filtroPersonajes)
+    cantidadPersonajes = filtroPersonajes.length
+    setearCantidadPersonajes()
 }
 
+itemTodos.addEventListener('click', () => pedidoFetch(paginaActual))
 itemFemenino.addEventListener('click', () => filtros('Female'))
 itemMasculino.addEventListener('click', () => filtros('Male'))
 itemSinGenero.addEventListener('click', () => filtros('genderless'))
@@ -90,6 +113,7 @@ function primerPagina() {
 }
 
 function ultimaPagina() {
+    paginaActual = 42
     pedidoFetch(paginaUltima)
     constenedorNumeroPagina.innerHTML = paginaActual
 }
