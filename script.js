@@ -53,8 +53,6 @@ function checkBotonesPaginado() {
         botonSiguientePagina.style.display = 'flex'
         botonUltimaPagina.style.display = 'flex'
     }
-
-    console.log('paginaActual ===>', paginaActual)
 }
 
 function setearCantidadPersonajes() {
@@ -67,7 +65,6 @@ function pedidoFetch(pagina) {
             return data.json();
         })
         .then((data) => {
-            console.log(data)
             paginaUltima = data.info.pages
             personajes = data.results;
             cantidadPersonajes = data.results.length
